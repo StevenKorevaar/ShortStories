@@ -1,0 +1,6 @@
+# Audacity project files (hundreds of MB each). Only the exported .mp3 in
+# audiobook/ belongs on the site.
+*.aup
+*.aup3
+*.aup3-shm
+*.aup3-wal

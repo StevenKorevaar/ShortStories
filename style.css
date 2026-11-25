@@ -1,0 +1,423 @@
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --text: #1c1c1c;
+  --muted: #6e6e6e;
+  --rule: #e2e2e2;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #141414;
+  --text: #e4e4e4;
+  --muted: #9b9b9b;
+  --rule: #2c2c2c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #141414;
+    --text: #e4e4e4;
+    --muted: #9b9b9b;
+    --rule: #2c2c2c;
+  }
+}
+
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Charter, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+.link-button:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.link-button {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-title {
+  font-weight: 600;
+}
+
+.site-brand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.1rem 1rem;
+}
+
+.last-updated {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.header-links {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.toc-toggle {
+  color: var(--text);
+}
+
+/* Layout: reading column, contents on the right */
+.layout {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.content {
+  flex: 0 1 38rem;
+  min-width: 0;
+  padding: 2.5rem 0 4rem;
+}
+
+.toc {
+  flex: 0 0 15rem;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  padding: 2.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc li {
+  margin: 0.3rem 0;
+}
+
+.toc a {
+  color: var(--muted);
+}
+
+.toc a:hover,
+.toc a[aria-current="page"] {
+  color: var(--text);
+}
+
+.toc a[aria-current="page"] {
+  font-weight: 600;
+}
+
+@media (min-width: 861px) {
+  .toc-collapsed .toc {
+    display: none;
+  }
+}
+
+.toc-heading {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.toc-heading {
+  margin: 0 0 0.75rem;
+}
+
+/* Story pages */
+.story-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.story-nav a:hover {
+  color: var(--text);
+}
+
+.story-nav .next {
+  margin-left: auto;
+  text-align: right;
+}
+
+.story-nav.top {
+  margin-bottom: 2.5rem;
+}
+
+.story-nav.bottom {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.story h1,
+.home h1 {
+  font-weight: normal;
+  line-height: 1.25;
+}
+
+.story h1 {
+  font-size: 2rem;
+  margin: 0 0 2rem;
+}
+
+/* Parts within a story ("## Part One") */
+.story h2 {
+  font-size: 1.25rem;
+  font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin: 2.5em 0 1.25em;
+}
+
+.story p {
+  margin: 0 0 1.1em;
+}
+
+.story blockquote {
+  margin: 1.5em 0;
+  padding-left: 1.25em;
+  border-left: 2px solid var(--rule);
+  color: var(--muted);
+}
+
+.story .scene-break {
+  text-align: center;
+  letter-spacing: 0.5em;
+  color: var(--muted);
+  margin: 2em 0;
+}
+
+.cursive {
+  font-family: "Segoe Script", "Brush Script MT", "Lucida Handwriting", "Apple Chancery", cursive;
+}
+
+.end-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+/* Audiobook */
+.listen {
+  margin: -1rem 0 2rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.listen .link-button:hover {
+  color: var(--text);
+}
+
+.audio-player {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  padding: 0.75rem 1.5rem;
+  background: var(--bg);
+  border-top: 1px solid var(--rule);
+  font-size: 0.95rem;
+}
+
+.audio-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.audio-title,
+.audio-time,
+.audio-volume {
+  color: var(--muted);
+}
+
+.audio-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+}
+
+.audio-toggle {
+  min-width: 3.2em;
+  font-weight: 600;
+}
+
+.audio-time {
+  font-variant-numeric: tabular-nums;
+}
+
+.audio-volume {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.audio-volume input {
+  width: 6rem;
+  accent-color: var(--text);
+}
+
+body.audio-open {
+  padding-bottom: 6rem;
+}
+
+body.audio-open .toc {
+  padding-bottom: 6rem;
+}
+
+/* Homepage */
+.home h1 {
+  font-size: 2.6rem;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.byline {
+  margin: 0;
+  color: var(--muted);
+}
+
+.cover {
+  display: block;
+  width: 100%;
+  max-width: 20rem;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  margin: 2rem 0 2.5rem;
+  border-radius: 3px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+}
+
+.blurb p {
+  margin: 0 0 1.1em;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem 2rem;
+  margin-top: 2.5rem;
+}
+
+.home-actions p {
+  margin: 0;
+}
+
+.download {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.start {
+  font-size: 1.15rem;
+}
+
+.start a,
+.download a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* Phones: contents move into the hamburger menu */
+@media (max-width: 860px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: var(--bg);
+    padding: 0.9rem 1rem;
+  }
+
+  .layout {
+    display: block;
+    padding: 0 1.25rem;
+  }
+
+  .content {
+    padding-top: 1.75rem;
+  }
+
+  .toc {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    /* Undo the desktop flex-start: browsers now apply align-self to fixed
+       boxes too, which shrinks the menu to its content (taller than the
+       screen, so nothing to scroll) instead of filling the screen. */
+    align-self: normal;
+    max-height: none;
+    /* Clears the sticky header, which can be two lines once "Last updated" wraps. */
+    padding: 6rem 1.5rem 2rem;
+    background: var(--bg);
+  }
+
+  body.toc-open {
+    overflow: hidden;
+  }
+
+  body.toc-open .toc {
+    display: block;
+  }
+
+  .story h1 {
+    font-size: 1.7rem;
+  }
+}

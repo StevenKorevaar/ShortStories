@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Short Stories</title>
+<link rel="stylesheet" href="style.css">
+<script>try {
+  var t = localStorage.getItem('oss-theme');
+  if (t) document.documentElement.setAttribute('data-theme', t);
+  if (localStorage.getItem('oss-toc') === 'hidden') document.documentElement.classList.add('toc-collapsed');
+} catch (e) {}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-brand">
+    <a class="site-title" href="index.html">Short Stories</a>
+    <time class="last-updated" id="last-updated"></time>
+  </div>
+  <div class="header-links">
+    <button type="button" class="link-button" id="theme-toggle">Dark</button>
+    <button type="button" class="link-button toc-toggle" id="toc-toggle" aria-expanded="false" aria-controls="toc" aria-label="Contents">&#9776;</button>
+  </div>
+</header>
+<div class="layout">
+  <main class="content">
+    <article class="home">
+      <h1>Short Stories</h1>
+      <p class="byline">by Steven Korevaar</p>
+      
+      <div class="blurb"><p>Blurb coming soon.</p>
+</div>
+      <div class="home-actions">
+        <p class="download">If you want an ebook version, <a href="short-stories.epub" download="Short Stories.epub">click here to download</a>.</p>
+        <p class="start"><a href="a-spirit-dealer.html">Start reading &rarr;</a></p>
+      </div>
+    </article>
+  </main>
+  <nav class="toc" id="toc" aria-label="Contents">
+    <p class="toc-heading">Contents</p>
+    <ol><li><a href="a-spirit-dealer.html">A Spirit Dealer</a></li></ol>
+  </nav>
+</div>
+<script src="last-updated.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
